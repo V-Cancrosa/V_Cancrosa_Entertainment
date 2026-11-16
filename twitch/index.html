@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Twitch — V Cancrosa Entertainment</title>
   <meta name="description" content="Kanał Twitch V Cancrosa Entertainment: streamy na żywo, harmonogram i zasady czatu.">
+  <link rel="alternate" hreflang="pl" href="../twitch/">
+  <link rel="alternate" hreflang="en" href="../en/twitch/">
   <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +21,11 @@
         <img src="../assets/img/logo.svg" alt="">
         <span>V Cancrosa<small>Entertainment</small></span>
       </a>
-      <button id="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">☰</button>
-      <nav id="site-nav" aria-label="Główne menu"></nav>
+      <div class="header__right">
+        <nav id="site-nav" aria-label="Główne menu"></nav>
+        <a class="lang-switch" href="../en/twitch/" hreflang="en" title="English version"><b>PL</b> / EN</a>
+        <button id="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">☰</button>
+      </div>
     </div>
   </header>
 
@@ -30,7 +35,17 @@
         <div class="hero__icon" data-platform-icon></div>
         <p class="eyebrow">Na żywo</p>
         <h1>Twitch</h1>
-        <p>Streamy na żywo, wspólne granie i gadanie z czatem. Wpadaj, rozgość się, nie karm lisa.</p>
+        <div class="dialogue">
+          <div class="dialog dialog--vincent" data-reveal>
+            <div class="dialog__avatar"><img src="../assets/img/vincent.png" alt="" onerror="this.onerror=null;this.src='../assets/img/logo.svg'"></div>
+            <div class="dialog__box"><span class="dialog__speaker">Vincent</span><p>Na żywo, bez montażu i bez ściemy. Gramy, gadamy z czatem, czasem coś wybuchnie. Wpadaj, rozgość się — tylko nie karm lisa.</p></div>
+          </div>
+          <div class="dialog dialog--me" data-reveal style="--d:0.15s">
+            <div class="dialog__avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg></div>
+            <div class="dialog__box"><span class="dialog__speaker">Zza kulis</span><p>Bez montażu znaczy też: bez drugiego podejścia. Tu zobaczysz najwięcej mnie, a najmniej wygładzonego Vincenta.</p></div>
+          </div>
+        </div>
+        <span class="handle" data-platform-handle></span>
         <div class="hero__actions">
           <a class="btn" data-platform-link href="#" target="_blank" rel="noopener">Oglądaj na Twitchu</a>
           <a class="btn btn--ghost" href="#harmonogram">Harmonogram</a>
@@ -42,9 +57,7 @@
       <div class="wrap">
         <h2>Stream</h2>
         <p class="lead">Jeśli jestem na żywo — zobaczysz to tutaj.</p>
-        <div class="embed" id="embed">
-          <p>Tu pojawi się odtwarzacz — uzupełnij <code>channel</code> w <code>assets/js/config.js</code>.</p>
-        </div>
+        <div class="embed" id="embed"><p>Tu pojawi się odtwarzacz.</p></div>
       </div>
     </section>
 

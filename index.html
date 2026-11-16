@@ -5,22 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>V Cancrosa Entertainment</title>
   <meta name="description" content="V Cancrosa Entertainment — YouTube, Twitch, TikTok, Instagram, Bluesky i więcej. Wszystkie kanały w jednym miejscu.">
-  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="alternate" hreflang="pl" href="./">
+  <link rel="alternate" hreflang="en" href="./en/">
+  <link rel="icon" href="./assets/img/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800;900&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
   <meta name="theme-color" content="#04050d">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body data-root="./" data-boot>
   <header class="site-header">
     <div class="wrap">
       <a class="logo" href="./">
-        <img src="assets/img/logo.svg" alt="">
+        <img src="./assets/img/logo.svg" alt="">
         <span>V Cancrosa<small>Entertainment</small></span>
       </a>
-      <button id="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">☰</button>
-      <nav id="site-nav" aria-label="Główne menu"></nav>
+      <div class="header__right">
+        <nav id="site-nav" aria-label="Główne menu"></nav>
+        <a class="lang-switch" href="./en/" hreflang="en" title="English version"><b>PL</b> / EN</a>
+        <button id="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">☰</button>
+      </div>
     </div>
   </header>
 
@@ -41,7 +46,7 @@
           <span class="emblem__ring"></span>
           <span class="emblem__ring"></span>
           <span class="emblem__ring"></span>
-          <div class="emblem__core"><img src="assets/img/logo.svg" alt=""></div>
+          <div class="emblem__core"><img src="./assets/img/logo.svg" alt=""></div>
         </div>
       </div>
       <a class="scroll-hint" href="#wideo">Przewiń</a>
@@ -89,24 +94,32 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="vincent">
       <div class="wrap">
         <div class="hud-head" data-reveal>
           <span class="hud-num">04</span>
           <div>
-            <p class="eyebrow">Baza</p>
-            <h2>O projekcie</h2>
+            <p class="eyebrow">Dwa głosy</p>
+            <h2>Kim jest Vincent</h2>
           </div>
         </div>
-        <div class="info">
-          <article data-reveal>
-            <h3>Co tu znajdziesz</h3>
-            <p>Uzupełnij: kilka zdań o tym, czym jest V Cancrosa Entertainment i dla kogo są te treści.</p>
-          </article>
-          <article data-reveal style="--d:.12s">
-            <h3>Kontakt</h3>
-            <p>Najszybciej przez <a href="https://t.me/vincent_vince_cancrosa" target="_blank" rel="noopener">Telegram</a>.</p>
-          </article>
+        <div class="dialogue">
+          <div class="dialog dialog--vincent" data-reveal>
+            <div class="dialog__avatar"><img src="./assets/img/vincent.png" alt="" onerror="this.onerror=null;this.src='./assets/img/logo.svg'"></div>
+            <div class="dialog__box"><span class="dialog__speaker">Vincent</span><p>Jestem Vincent — lis, gracz i gospodarz tej norki. Ogarniam streamy, filmy i cały ten kosmos. Ktoś musi.</p></div>
+          </div>
+          <div class="dialog dialog--me" data-reveal style="--d:0.15s">
+            <div class="dialog__avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg></div>
+            <div class="dialog__box"><span class="dialog__speaker">Zza kulis</span><p>A ja jestem tym, z kogo Vincent wyszedł. On to wersja mnie, która zawsze wie, co robi, i nigdy nie zapomina o harmonogramie. Ja wciąż nad tym pracuję.</p></div>
+          </div>
+          <div class="dialog dialog--vincent" data-reveal style="--d:0.3s">
+            <div class="dialog__avatar"><img src="./assets/img/vincent.png" alt="" onerror="this.onerror=null;this.src='./assets/img/logo.svg'"></div>
+            <div class="dialog__box"><span class="dialog__speaker">Vincent</span><p>Razem robimy jedno: dobrą zabawę po obu stronach ekranu. Chcesz pogadać? <a href="https://t.me/vincent_vince_cancrosa" target="_blank" rel="noopener">Telegram</a> — odpisuję szybciej, niż myślisz.</p></div>
+          </div>
+          <div class="dialog dialog--me" data-reveal style="--d:0.45s">
+            <div class="dialog__avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg></div>
+            <div class="dialog__box"><span class="dialog__speaker">Zza kulis</span><p>Albo trochę wolniej. Ale odpisuję.</p></div>
+          </div>
         </div>
       </div>
     </section>
@@ -119,9 +132,9 @@
     </div>
   </footer>
 
-  <script src="assets/js/config.js"></script>
-  <script src="assets/js/icons.js"></script>
-  <script src="assets/js/fx.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="./assets/js/config.js"></script>
+  <script src="./assets/js/icons.js"></script>
+  <script src="./assets/js/fx.js"></script>
+  <script src="./assets/js/main.js"></script>
 </body>
 </html>

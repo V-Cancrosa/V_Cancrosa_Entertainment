@@ -143,7 +143,7 @@
     el.id = "boot";
     el.setAttribute("aria-hidden", "true");
     el.innerHTML = '<div><img src="' + root + 'assets/img/logo.svg" alt="">' +
-      '<div class="boot__label">Ładowanie świata</div><div class="boot__bar"><span></span></div></div>';
+      '<div class="boot__label">' + (document.documentElement.lang === "en" ? "Loading world" : "Ładowanie świata") + '</div><div class="boot__bar"><span></span></div></div>';
     document.body.appendChild(el);
     function done() { el.classList.add("done"); setTimeout(function () { el.remove(); }, 700); }
     setTimeout(done, 1300);

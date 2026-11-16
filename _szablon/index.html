@@ -1,11 +1,14 @@
 <!doctype html>
-<!-- SZABLON nowej podstrony: skopiuj folder jako <id>/ i podmień ID_SERWISU oraz NAZWA. -->
+<!-- SZABLON nowej podstrony: skopiuj folder jako <id>/ (i en/<id>/ dla wersji angielskiej),
+     podmień ID_SERWISU oraz NAZWA/NAME i uzupełnij teksty Vincenta i zza kulis. -->
 <html lang="pl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NAZWA — V Cancrosa Entertainment</title>
   <meta name="description" content="Opis podstrony serwisu.">
+  <link rel="alternate" hreflang="pl" href="../_szablon/">
+  <link rel="alternate" hreflang="en" href="../en/_szablon/">
   <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,8 +23,11 @@
         <img src="../assets/img/logo.svg" alt="">
         <span>V Cancrosa<small>Entertainment</small></span>
       </a>
-      <button id="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">☰</button>
-      <nav id="site-nav" aria-label="Główne menu"></nav>
+      <div class="header__right">
+        <nav id="site-nav" aria-label="Główne menu"></nav>
+        <a class="lang-switch" href="../en/_szablon/" hreflang="en" title="English version"><b>PL</b> / EN</a>
+        <button id="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">☰</button>
+      </div>
     </div>
   </header>
 
@@ -29,52 +35,39 @@
     <section class="hero">
       <div class="wrap">
         <div class="hero__icon" data-platform-icon></div>
-        <p class="eyebrow">Kanał</p>
+        <p class="eyebrow">Podtytuł</p>
         <h1>NAZWA</h1>
-        <p>Uzupełnij: jedno-dwa zdania o tym, co jest w tym serwisie.</p>
+        <div class="dialogue">
+          <div class="dialog dialog--vincent" data-reveal>
+            <div class="dialog__avatar"><img src="../assets/img/vincent.png" alt="" onerror="this.onerror=null;this.src='../assets/img/logo.svg'"></div>
+            <div class="dialog__box"><span class="dialog__speaker">Vincent</span><p>Uzupełnij: co mówi Vincent o tym serwisie.</p></div>
+          </div>
+          <div class="dialog dialog--me" data-reveal style="--d:0.15s">
+            <div class="dialog__avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></svg></div>
+            <div class="dialog__box"><span class="dialog__speaker">Zza kulis</span><p>Uzupełnij: twój komentarz zza kulis.</p></div>
+          </div>
+        </div>
+        <span class="handle" data-platform-handle></span>
         <div class="hero__actions">
-          <a class="btn" data-platform-link href="#" target="_blank" rel="noopener">Przejdź na kanał</a>
+          <a class="btn" data-platform-link href="#" target="_blank" rel="noopener">Przejdź do profilu</a>
           <a class="btn btn--ghost" href="#co-i-jak">Co i jak</a>
         </div>
       </div>
     </section>
 
-
     <section class="section" id="co-i-jak">
       <div class="wrap">
         <h2>Co i jak</h2>
-        <p class="lead">Co pojawia się na kanale i jak często.</p>
         <div class="info">
           <article>
-            <h3>Serie</h3>
-            <ul>
-              <li>Uzupełnij: nazwa serii #1</li>
-              <li>Uzupełnij: nazwa serii #2</li>
-            </ul>
+            <h3>Nagłówek</h3>
+            <p>Uzupełnij.</p>
           </article>
           <article>
-            <h3>Jak często</h3>
-            <p>Uzupełnij: np. „nowy film co środę i sobotę”.</p>
-          </article>
-          <article>
-            <h3>Shorts</h3>
-            <p>Uzupełnij: krótkie klipy, highlighty ze streamów itp.</p>
+            <h3>Nagłówek</h3>
+            <p>Uzupełnij.</p>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <h2>Najczęstsze pytania</h2>
-        <details>
-          <summary>Czy można proponować gry / tematy?</summary>
-          <p>Uzupełnij odpowiedź.</p>
-        </details>
-        <details>
-          <summary>Czy mogę wykorzystać fragment filmu?</summary>
-          <p>Uzupełnij zasady korzystania z materiałów.</p>
-        </details>
       </div>
     </section>
   </main>

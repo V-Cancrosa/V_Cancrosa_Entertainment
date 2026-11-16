@@ -6,13 +6,34 @@ Strona-hub (GitHub Pages) zbierająca wszystkie serwisy V Cancrosa. Każdy głó
 - **Zdjęcia i posty:** Instagram (osobny świat), Bluesky (posty wczytywane na żywo)
 - **Znajdziesz mnie też:** X, Telegram, Reddit, Kick, GitHub — same linki, bez podstron
 
-Czysty HTML/CSS/JS — bez builda, bez zależności.
+Czysty HTML/CSS/JS — bez builda, bez zależności. Dwie wersje językowe: polska (główna) i angielska pod `/en/`.
+
+## Dwa głosy: Vincent i „zza kulis”
+
+Teksty na stronie mówią dwa głosy, jak dialogi w grze:
+
+- **Vincent** — świecąca ramka z avatarem. Dopracowany, pewny siebie gospodarz norki.
+- **Zza kulis** (*Behind the scenes*) — przerywana ramka, pismo jak z terminala. Szczery komentarz osoby, z której Vincent wyszedł.
+
+```html
+<div class="dialog dialog--vincent" data-reveal> … <span class="dialog__speaker">Vincent</span><p>Tekst Vincenta</p> … </div>
+<div class="dialog dialog--me" data-reveal>      … <span class="dialog__speaker">Zza kulis</span><p>Twój komentarz</p> … </div>
+```
+
+Avatar Vincenta: wrzuć obrazek jako `assets/img/vincent.png` (kwadrat, min. 200×200). Dopóki go nie ma, pokazuje się logo-lis.
+
+## Wersja angielska
+
+Każda strona ma bliźniaka w `en/` (np. `twitch/index.html` ↔ `en/twitch/index.html`).
+Zmieniając treść, popraw oba pliki. Teksty generowane przez skrypty (menu, karty, terminal, komunikaty)
+są w słowniku `T` na początku `assets/js/main.js`, a opisy kart w `short: { pl, en }` w configu.
 
 ## Struktura
 
 ```
 index.html            strona główna (karty serwisów generowane z configu)
 youtube/ twitch/ tiktok/ instagram/ bluesky/   podstrony serwisów
+en/                   wersja angielska (te same podstrony)
 _szablon/index.html   szablon nowej podstrony
 assets/js/config.js   ⭐ linki, ID kanałów, lista serwisów
 assets/js/main.js     menu, karty, osadzenia (zwykle nie trzeba ruszać)
@@ -51,12 +72,12 @@ Strona będzie pod adresem `https://v-cancrosa.github.io/V_Cancrosa_Entertainmen
 1. Dopisz obiekt w `platforms` w `assets/js/config.js`:
    ```js
    { id: "threads", name: "Threads", group: "social", status: "active", color: "#ffffff",
-     ink: "#0f0d0c", url: "https://www.threads.net/@...", short: "..." }
+     ink: "#0f0d0c", url: "https://www.threads.net/@...", short: { pl: "...", en: "..." } }
    ```
    - `group: "links"` — sama ikonka w „Znajdziesz mnie też”, bez podstrony (koniec, dalsze kroki niepotrzebne).
    - `status: "soon"` — karta „Wkrótce” na głównej, bez podstrony.
    - `ink` — kolor tekstu na przyciskach, gdy akcent jest jasny.
-2. Skopiuj folder `_szablon` jako `threads/` i w `index.html` podmień `ID_SERWISU` → `threads` oraz `NAZWA` → `Threads`.
+2. Skopiuj folder `_szablon` jako `threads/`, a `en/_szablon` jako `en/threads/`. W obu podmień `ID_SERWISU` → `threads` oraz `NAZWA`/`NAME` → `Threads` i wpisz teksty Vincenta i zza kulis.
 3. Dodaj ikonę do `assets/js/icons.js` — ścieżkę `d` z pliku SVG na https://simpleicons.org (inaczej będzie ikona domyślna).
 
 Menu, karty na głównej i ikonki w stopce aktualizują się same.

@@ -13,6 +13,7 @@
  *             "soon"   = karta „Wkrótce” (bez podstrony)
  *  - url    : link do profilu
  *  - color  : kolor akcentu karty / podstrony
+ *  - short  : opis na karcie — { pl: "...", en: "..." }
  *
  *  Nowy serwis z podstroną: dopisz obiekt, skopiuj folder `_szablon`
  *  jako `<id>/` i uzupełnij treść. Szczegóły w README.md.
@@ -32,7 +33,10 @@ window.SITE = {
       url: "https://www.youtube.com/@Vincent_Vince_Cancrosa",
       // ID kanału (UC...) — z niego robi się playlista najnowszych filmów
       channelId: "UCR_xUJhkPymy4xGxNfguC9A",
-      short: "Filmy, montaże, serie i powtórki najlepszych momentów.",
+      short: {
+        pl: "Filmy, montaże, serie i powtórki najlepszych momentów.",
+        en: "Videos, edits, series and replays of the best moments.",
+      },
     },
     {
       id: "twitch",
@@ -42,7 +46,10 @@ window.SITE = {
       color: "#a970ff",
       url: "https://www.twitch.tv/vincent_cancrosa",
       channel: "vincent_cancrosa",
-      short: "Streamy na żywo, wspólne granie i rozmowy z czatem.",
+      short: {
+        pl: "Streamy na żywo, wspólne granie i rozmowy z czatem.",
+        en: "Live streams, playing together and talking with chat.",
+      },
     },
     {
       id: "tiktok",
@@ -53,7 +60,10 @@ window.SITE = {
       ink: "#0f0d0c", // kolor tekstu na przyciskach (jasny akcent -> ciemny tekst)
       url: "https://www.tiktok.com/@vulpescancrosa",
       handle: "vulpescancrosa",
-      short: "Krótkie formy, klipy i szybkie akcje.",
+      short: {
+        pl: "Krótkie formy, klipy i szybkie akcje.",
+        en: "Short-form clips, highlights and quick action.",
+      },
     },
 
     /* ---------- Zdjęcia i posty ---------- */
@@ -68,7 +78,10 @@ window.SITE = {
       // Linki do wybranych postów do pokazania na podstronie, np.
       // "https://www.instagram.com/p/ABC123xyz/"
       posts: [],
-      short: "Osobny świat — zdjęcia, kadry i historie, które żyją własnym życiem.",
+      short: {
+        pl: "Osobny świat — zdjęcia, kadry i historie, które żyją własnym życiem.",
+        en: "A world of its own — photos, frames and stories with a life of their own.",
+      },
     },
     {
       id: "bluesky",
@@ -78,7 +91,10 @@ window.SITE = {
       color: "#1185fe",
       url: "https://bsky.app/profile/vcancrosa.bsky.social",
       handle: "vcancrosa.bsky.social",
-      short: "Posty, przemyślenia i bieżące ogłoszenia.",
+      short: {
+        pl: "Posty, przemyślenia i bieżące ogłoszenia.",
+        en: "Posts, thoughts and the latest announcements.",
+      },
     },
 
     /* ---------- Znajdziesz mnie też ---------- */

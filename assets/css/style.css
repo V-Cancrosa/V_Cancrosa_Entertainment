@@ -459,3 +459,53 @@ details p { color: var(--muted); margin: 12px 0 0; }
   .credits-roll { position: static; animation: none !important; padding: 40px 16px; }
   .credits-stage { height: auto; -webkit-mask-image: none; mask-image: none; }
 }
+
+/* ---------- Przełącznik języka ---------- */
+.header__right { display: flex; align-items: center; gap: 10px; }
+.lang-switch {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--display); font-weight: 700; font-size: .74rem; letter-spacing: .14em;
+  color: var(--muted); text-decoration: none; padding: 7px 10px; border-radius: 10px;
+  border: 1px solid var(--border); background: rgba(255,255,255,.03); transition: color .25s, border-color .25s, box-shadow .25s;
+}
+.lang-switch b { color: var(--text); font-weight: 800; }
+.lang-switch:hover { color: var(--text); border-color: var(--accent); box-shadow: 0 0 18px -6px var(--accent); }
+
+/* ---------- Dialogi: Vincent + zza kulis ---------- */
+.dialogue { display: grid; gap: 16px; max-width: 720px; }
+.hero .dialogue { margin-top: 4px; }
+.dialog { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; }
+.dialog__avatar {
+  width: 52px; height: 52px; border-radius: 50%; overflow: hidden; display: grid; place-items: center;
+  background: radial-gradient(circle at 35% 30%, #2a2f66, #0b0d22 70%);
+}
+.dialog__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.dialog__avatar img[src$="logo.svg"] { width: 64%; height: 64%; object-fit: contain; }
+.dialog__box { position: relative; padding: 14px 18px 16px; border-radius: 4px 16px 16px 16px; }
+.dialog__box p { margin: 0; font-size: 1.04rem; max-width: none; }
+.dialog__speaker {
+  display: block; margin-bottom: 4px;
+  font-family: var(--display); font-weight: 800; font-size: .68rem; letter-spacing: .28em; text-transform: uppercase;
+}
+/* Vincent — dopracowany, świecący */
+.dialog--vincent .dialog__avatar { box-shadow: 0 0 0 2px var(--accent), 0 0 22px -2px var(--accent); }
+.dialog--vincent .dialog__box {
+  background: linear-gradient(120deg, color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%), rgba(11,13,30,.88);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow: 0 14px 40px -24px var(--accent);
+}
+.dialog--vincent .dialog__speaker { color: var(--accent); }
+.dialog--vincent .dialog__box p { color: var(--text); }
+/* Zza kulis — szczerze, szkicowo */
+.dialog--me { margin-left: 34px; }
+.dialog--me .dialog__avatar { box-shadow: 0 0 0 1px var(--border); background: rgba(255,255,255,.04); color: var(--muted); }
+.dialog--me .dialog__avatar svg { width: 46%; height: 46%; }
+.dialog--me .dialog__box { background: rgba(255,255,255,.025); border: 1px dashed rgba(170,180,230,.28); }
+.dialog--me .dialog__speaker { color: var(--brand-3); opacity: .85; }
+.dialog--me .dialog__speaker::before { content: "// "; opacity: .6; }
+.dialog--me .dialog__box p { color: #c3c7e4; font-family: var(--mono); font-size: .9rem; line-height: 1.7; }
+@media (max-width: 600px) {
+  .dialog { grid-template-columns: 40px 1fr; gap: 10px; }
+  .dialog__avatar { width: 40px; height: 40px; }
+  .dialog--me { margin-left: 14px; }
+}
