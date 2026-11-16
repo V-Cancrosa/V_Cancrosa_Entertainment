@@ -20,7 +20,19 @@ Teksty na stronie mówią dwa głosy, jak dialogi w grze:
 <div class="dialog dialog--me" data-reveal>      … <span class="dialog__speaker">Zza kulis</span><p>Twój komentarz</p> … </div>
 ```
 
-Avatar Vincenta: wrzuć obrazek jako `assets/img/vincent.png` (kwadrat, min. 200×200). Dopóki go nie ma, pokazuje się logo-lis.
+Avatar Vincenta: `assets/img/vincent.png` — fragment „The Night Paw” (art: amanda_rice910, podpisany w napisach końcowych).
+
+## Wspólny pas „V Cancrosa”
+
+Trzy strony tworzą jedno uniwersum i mają ten sam cienki pas na górze: **Postacie** (The One Above Them — wejście główne),
+**Kanały** (V Cancrosa Entertainment) i — ukryte — **Studio** (V_Cancrosa-YouTube-Create).
+
+- Źródło pasa: folder `uni/` w repo **V_Cancrosa-One-and-Fursonas**. Kopie: `assets/uni/` w Entertainment i `site/uni/` w YouTube-Create.
+  Zmieniasz tylko źródło, potem kopiujesz cały folder `uni/` bez zmian.
+- Na stronie: `<link rel="stylesheet" href="…/uni/universe.css">` i `<script src="…/uni/universe.js" data-site="fursony|entertainment|studio" defer></script>`.
+- Pas chowa się przy przewijaniu w dół, wraca przy przewijaniu w górę i mówi językiem strony.
+- Ukryte przejście do studia: pięć szybkich kliknięć w znak (punkt nad trzema kreskami) albo wpisanie na klawiaturze „studio”.
+  To ukrycie, nie zabezpieczenie — kto zna adres, wejdzie. Studio ma `noindex`, więc wyszukiwarki go nie pokazują.
 
 ## Wersja angielska
 
@@ -100,4 +112,4 @@ Dla osób z włączonym „ogranicz ruch” w systemie animacje są wyłączone,
 | [AOS](https://codepen.io/michalsnik/pen/WxNdvq) | Michał Sajnóg | pojawianie się przy przewijaniu |
 | [Button hover effects with box-shadow](https://codepen.io/giana/pen/BZaGyP) | Giana | efekty przycisków |
 
-Czcionki: Exo 2, Inter, JetBrains Mono (Google Fonts, SIL OFL). Ikony: Simple Icons (CC0).
+Czcionki: Exo 2, Inter, JetBrains Mono (SIL OFL) — trzymane na serwerze strony w `assets/fonts/`, bez Google Fonts (RODO). Ikony: Simple Icons (CC0).
