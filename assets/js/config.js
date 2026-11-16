@@ -29,9 +29,9 @@ window.SITE = {
       group: "video",
       status: "active",
       color: "#ff3b3b",
-      url: "https://www.youtube.com/channel/UCoSyr5ruJwrmL3UbI-6YbRA",
+      url: "https://www.youtube.com/@Vincent_Vince_Cancrosa",
       // ID kanału (UC...) — z niego robi się playlista najnowszych filmów
-      channelId: "UCoSyr5ruJwrmL3UbI-6YbRA",
+      channelId: "UCR_xUJhkPymy4xGxNfguC9A",
       short: "Filmy, montaże, serie i powtórki najlepszych momentów.",
     },
     {
