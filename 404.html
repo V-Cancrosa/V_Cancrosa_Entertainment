@@ -5,16 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nie znaleziono — V Cancrosa Entertainment</title>
   <style>
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; text-align: center;
-           background: #0f0d0c; color: #f3ece7; font-family: system-ui, sans-serif; padding: 16px; }
-    h1 { font-size: 4rem; margin: 0; color: #ff7a2f; }
-    a { color: #ff7a2f; font-weight: 700; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 16px;
+           color: #eef0ff; font-family: system-ui, sans-serif;
+           background: radial-gradient(40% 40% at 30% 30%, rgba(139,92,255,.25), transparent 70%),
+                       radial-gradient(35% 35% at 75% 70%, rgba(255,122,47,.18), transparent 70%), #04050d; }
+    body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .7;
+           background-image: radial-gradient(1px 1px at 10% 20%, #fff, transparent), radial-gradient(1px 1px at 80% 15%, #fff, transparent),
+             radial-gradient(1.5px 1.5px at 30% 70%, #ffd1a8, transparent), radial-gradient(1px 1px at 60% 40%, #d6e4ff, transparent),
+             radial-gradient(1px 1px at 90% 80%, #fff, transparent), radial-gradient(1.5px 1.5px at 45% 90%, #c9b8ff, transparent); }
+    h1 { font-size: clamp(5rem, 20vw, 9rem); margin: 0; line-height: 1; font-weight: 900; letter-spacing: .05em;
+         background: linear-gradient(100deg, #ff7a2f, #ffd29b, #8b5cff); -webkit-background-clip: text; background-clip: text; color: transparent;
+         filter: drop-shadow(0 0 30px rgba(255,122,47,.4)); }
+    p { color: #9aa0c3; }
+    a { color: #ff7a2f; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; font-size: .85rem; }
   </style>
 </head>
 <body>
   <div>
     <h1>404</h1>
-    <p>Lis zakopał tę stronę i zapomniał gdzie.</p>
+    <p>Sygnał utracony. Lis zakopał tę stronę gdzieś w kosmosie.</p>
     <p><a href="javascript:history.back()">← Wróć</a></p>
   </div>
 </body>

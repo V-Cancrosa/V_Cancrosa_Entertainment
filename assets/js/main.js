@@ -71,17 +71,18 @@
       var group = grid.getAttribute("data-platform-grid");
       grid.innerHTML = site.platforms
         .filter(function (p) { return p.group === group; })
-        .map(function (p) {
+        .map(function (p, i) {
           var soon = p.status !== "active";
           var tag = soon ? "div" : "a";
           var href = soon ? "" : ' href="' + root + p.id + '/"';
           return (
             "<" + tag + href + ' class="card' + (soon ? " card--soon" : "") +
-            '" style="--accent:' + esc(p.color) + '">' +
+            '" data-reveal style="--accent:' + esc(p.color) + ";--d:" + (i * 0.12) + 's">' +
+            '<span class="card__index">0' + (i + 1) + "</span>" +
             '<span class="card__icon">' + icon(p.id) + "</span>" +
             '<span class="card__name">' + esc(p.name) + "</span>" +
             '<span class="card__text">' + esc(p.short) + "</span>" +
-            '<span class="card__cta">' + (soon ? "Wkrótce" : "Zobacz co i jak →") + "</span>" +
+            '<span class="card__cta">' + (soon ? "Wkrótce" : "Wejdź") + "</span>" +
             "</" + tag + ">"
           );
         })
@@ -92,9 +93,9 @@
     if (links) {
       links.innerHTML = site.platforms
         .filter(function (p) { return p.group === "links" && p.url; })
-        .map(function (p) {
-          return '<a class="pill" href="' + esc(p.url) + '" target="_blank" rel="noopener" style="--accent:' +
-            esc(p.color) + '">' + icon(p.id) + "<span>" + esc(p.name) + "</span></a>";
+        .map(function (p, i) {
+          return '<a class="pill" data-reveal href="' + esc(p.url) + '" target="_blank" rel="noopener" style="--accent:' +
+            esc(p.color) + ";--d:" + (i * 0.07) + 's">' + icon(p.id) + "<span>" + esc(p.name) + "</span></a>";
         })
         .join("");
     }
@@ -231,7 +232,12 @@
 
   function renderFooter() {
     var y = document.getElementById("year");
-    if (y) y.textContent = new Date().getFullYear();
+    if (y) {
+      y.textContent = new Date().getFullYear();
+      if (!document.querySelector(".credits-link")) {
+        y.parentNode.insertAdjacentHTML("beforeend", '<a class="credits-link" href="' + root + 'credits/">Napisy końcowe</a>');
+      }
+    }
     var socials = document.getElementById("footer-links");
     if (socials) {
       socials.innerHTML = site.platforms
@@ -244,8 +250,36 @@
     }
   }
 
+  /* ---------- Terminal na ekranie tytułowym ---------- */
+  function renderTerminal() {
+    var el = document.getElementById("terminal");
+    if (!el || !window.runTerminal) return;
+    var lines = [{ type: "uruchom norka --tryb=kosmos" }, { html: '<span class="ok">✓</span> rdzeń systemu online', wait: 300 }];
+    site.platforms.filter(hasPage).forEach(function (p) {
+      lines.push({
+        html: '<span class="ok">✓</span> sygnał: <span style="color:' + esc(p.color) + '">' + esc(p.name) + "</span>",
+        wait: 170,
+      });
+    });
+    lines.push({ html: '<span class="hl">» Witaj, podróżniku. Wybierz kanał.</span>', wait: 200 });
+    window.runTerminal(el, lines);
+  }
+
   renderNav();
   renderCards();
   renderPlatformPage();
   renderFooter();
+  renderTerminal();
+  // na podstronach animuj panele automatycznie
+  document.querySelectorAll(".section h2, .section .lead, .info article, .embed, .table-scroll, details")
+    .forEach(function (el, i) {
+      if (el.closest("[data-reveal]") || el.hasAttribute("data-reveal")) return;
+      el.setAttribute("data-reveal", "");
+      if (el.matches(".info article")) {
+        var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+        el.style.setProperty("--d", (idx * 0.1) + "s");
+      }
+    });
+  if (window.revealAll) window.revealAll();
+  if (window.tiltCards) window.tiltCards();
 })();

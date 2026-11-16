@@ -6,9 +6,13 @@
   <title>V Cancrosa Entertainment</title>
   <meta name="description" content="V Cancrosa Entertainment — YouTube, Twitch, TikTok, Instagram, Bluesky i więcej. Wszystkie kanały w jednym miejscu.">
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800;900&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+  <meta name="theme-color" content="#04050d">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body data-root="./">
+<body data-root="./" data-boot>
   <header class="site-header">
     <div class="wrap">
       <a class="logo" href="./">
@@ -21,49 +25,85 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero hero--title">
       <div class="wrap">
-        <p class="eyebrow">Witaj w norce</p>
-        <h1>V Cancrosa <span>Entertainment</span></h1>
-        <p>Gry, streamy i wszystko pomiędzy. Wybierz serwis poniżej — każdy ma swoją podstronę z tym, co i jak.</p>
+        <div>
+          <p class="eyebrow">Witaj w norce</p>
+          <h1><span class="line">V Cancrosa</span><span class="line accent">Entertainment</span></h1>
+          <p>Gry, streamy i wszystko pomiędzy. Wybierz kanał — każdy ma własną podstronę z tym, co i jak.</p>
+          <div class="hero__actions">
+            <a class="btn" href="#wideo">▶ Start</a>
+            <a class="btn btn--ghost" href="#linki">Wszystkie kanały</a>
+          </div>
+          <div class="terminal" id="terminal" aria-label="Powitanie"></div>
+        </div>
+        <div class="emblem" aria-hidden="true">
+          <span class="emblem__ring"></span>
+          <span class="emblem__ring"></span>
+          <span class="emblem__ring"></span>
+          <div class="emblem__core"><img src="assets/img/logo.svg" alt=""></div>
+        </div>
       </div>
+      <a class="scroll-hint" href="#wideo">Przewiń</a>
     </section>
 
     <section class="section" id="wideo">
       <div class="wrap">
-        <p class="eyebrow">Główna scena</p>
-        <h2>Wideo i streamy</h2>
-        <p class="lead">Filmy, transmisje na żywo i krótkie formy.</p>
+        <div class="hud-head" data-reveal>
+          <span class="hud-num">01</span>
+          <div>
+            <p class="eyebrow">Główna scena</p>
+            <h2>Wideo i streamy</h2>
+          </div>
+        </div>
+        <p class="lead" data-reveal>Filmy, transmisje na żywo i krótkie formy.</p>
         <div class="grid" data-platform-grid="video"></div>
       </div>
     </section>
 
     <section class="section" id="zdjecia">
       <div class="wrap">
-        <p class="eyebrow">Kadry i słowa</p>
-        <h2>Zdjęcia i posty</h2>
-        <p class="lead">Instagram to osobny świat, a Bluesky to miejsce na bieżące posty.</p>
+        <div class="hud-head" data-reveal>
+          <span class="hud-num">02</span>
+          <div>
+            <p class="eyebrow">Kadry i słowa</p>
+            <h2>Zdjęcia i posty</h2>
+          </div>
+        </div>
+        <p class="lead" data-reveal>Instagram to osobny świat, a Bluesky to miejsce na bieżące posty.</p>
         <div class="grid" data-platform-grid="social"></div>
       </div>
     </section>
 
     <section class="section" id="linki">
       <div class="wrap">
-        <h2>Znajdziesz mnie też</h2>
-        <p class="lead">Pozostałe miejsca w sieci.</p>
+        <div class="hud-head" data-reveal>
+          <span class="hud-num">03</span>
+          <div>
+            <p class="eyebrow">Sieć</p>
+            <h2>Znajdziesz mnie też</h2>
+          </div>
+        </div>
+        <p class="lead" data-reveal>Pozostałe miejsca w sieci.</p>
         <div class="pills" id="link-row"></div>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <h2>O projekcie</h2>
+        <div class="hud-head" data-reveal>
+          <span class="hud-num">04</span>
+          <div>
+            <p class="eyebrow">Baza</p>
+            <h2>O projekcie</h2>
+          </div>
+        </div>
         <div class="info">
-          <article>
+          <article data-reveal>
             <h3>Co tu znajdziesz</h3>
             <p>Uzupełnij: kilka zdań o tym, czym jest V Cancrosa Entertainment i dla kogo są te treści.</p>
           </article>
-          <article>
+          <article data-reveal style="--d:.12s">
             <h3>Kontakt</h3>
             <p>Najszybciej przez <a href="https://t.me/vincent_vince_cancrosa" target="_blank" rel="noopener">Telegram</a>.</p>
           </article>
@@ -81,6 +121,7 @@
 
   <script src="assets/js/config.js"></script>
   <script src="assets/js/icons.js"></script>
+  <script src="assets/js/fx.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
