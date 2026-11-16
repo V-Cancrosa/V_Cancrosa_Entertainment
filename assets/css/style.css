@@ -54,7 +54,7 @@ img, svg { display: block; max-width: 100%; }
 
 #nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 6px 10px; font-size: 1.2rem; cursor: pointer; }
 
-@media (max-width: 680px) {
+@media (max-width: 860px) {
   #nav-toggle { display: block; }
   #site-nav {
     display: none; position: absolute; top: 64px; left: 0; right: 0;
@@ -75,7 +75,7 @@ img, svg { display: block; max-width: 100%; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 12px 22px; border-radius: 999px; font-weight: 700; text-decoration: none;
-  background: var(--accent); color: #fff; border: 2px solid var(--accent); transition: .2s;
+  background: var(--accent); color: var(--on-accent, #fff); border: 2px solid var(--accent); transition: .2s;
 }
 .btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
 .btn--ghost { background: transparent; color: var(--text); border-color: var(--border); }
@@ -143,3 +143,42 @@ details p { color: var(--muted); margin: 10px 0 0; }
 #footer-links { display: flex; gap: 12px; }
 #footer-links a { width: 22px; height: 22px; color: var(--muted); transition: .2s; }
 #footer-links a:hover { color: var(--accent); }
+
+/* ---------- Rząd „Znajdziesz mnie też” ---------- */
+.pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 10px 18px 10px 14px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); text-decoration: none; font-weight: 600; transition: .2s;
+}
+.pill svg { width: 18px; height: 18px; color: var(--accent); }
+.pill:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+/* ---------- Posty (Bluesky) ---------- */
+.posts { align-items: start; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+.post {
+  display: flex; flex-direction: column; gap: 12px; padding: 18px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  color: var(--text); text-decoration: none; transition: .2s;
+}
+.post:hover { border-color: var(--accent); }
+.post__text { margin: 0; white-space: pre-line; overflow-wrap: anywhere; }
+.post__meta { display: flex; justify-content: space-between; color: var(--muted); font-size: .85rem; margin-top: auto; }
+.post__media { display: grid; gap: 4px; border-radius: 10px; overflow: hidden; }
+.post__media--2, .post__media--4 { grid-template-columns: 1fr 1fr; }
+.post__media--3 { grid-template-columns: 1fr 1fr; }
+.post__media--3 img:first-child { grid-row: span 2; }
+.post__media img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.post__media--1 img { aspect-ratio: auto; max-height: 360px; }
+
+/* ---------- Osadzenia na kliknięcie / bez ramki 16:9 ---------- */
+.embed--free { aspect-ratio: auto; min-height: 220px; }
+.consent { display: grid; justify-items: center; gap: 14px; max-width: 46ch; }
+.consent p { margin: 0; }
+.feed-embed { display: flex; justify-content: center; }
+.ig-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; align-items: start; }
+.ig-grid .instagram-media { min-width: 0 !important; width: 100% !important; margin: 0 !important; }
+
+/* ---------- Profil (handle) ---------- */
+.handle { display: inline-block; margin-top: 12px; color: var(--accent); font-weight: 700; font-family: ui-monospace, monospace; }

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bluesky — V Cancrosa Entertainment</title>
+  <meta name="description" content="Bluesky V Cancrosa Entertainment: posty i bieżące ogłoszenia.">
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-root="../" data-platform="bluesky">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="../">
+        <img src="../assets/img/logo.svg" alt="">
+        <span>V Cancrosa<small>Entertainment</small></span>
+      </a>
+      <button id="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">☰</button>
+      <nav id="site-nav" aria-label="Główne menu"></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero__icon" data-platform-icon></div>
+        <p class="eyebrow">Posty</p>
+        <h1>Bluesky</h1>
+        <p>Bieżące posty, zdjęcia, ogłoszenia o streamach i nowych filmach.</p>
+        <span class="handle" data-platform-handle></span>
+        <div class="hero__actions">
+          <a class="btn" data-platform-link href="#" target="_blank" rel="noopener">Obserwuj na Bluesky</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Najnowsze posty</h2>
+        <p class="lead">Wczytywane na bieżąco z profilu.</p>
+        <div class="embed embed--free" id="embed"><p>Wczytuję posty…</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year"></span> V Cancrosa Entertainment</span>
+      <div id="footer-links"></div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/icons.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

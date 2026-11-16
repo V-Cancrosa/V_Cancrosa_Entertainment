@@ -3,14 +3,18 @@
  *  KONFIGURACJA STRONY — tu zmieniasz linki i dodajesz serwisy
  * ===========================================================
  *
- *  Każdy serwis to jeden obiekt w tablicy `platforms`.
- *  - id      : nazwa folderu podstrony (np. "youtube" -> /youtube/)
- *  - status  : "active" = ma podstronę i jest w menu
- *              "soon"   = pokazuje się na głównej jako "Wkrótce"
- *  - url     : link do profilu w danym serwisie
- *  - color   : kolor akcentu karty / podstrony
+ *  Każdy serwis to jeden obiekt w tablicy `platforms`:
+ *  - id     : nazwa folderu podstrony (np. "youtube" -> /youtube/)
+ *             i nazwa ikony z assets/js/icons.js
+ *  - group  : "video"  = sekcja „Wideo i streamy” na głównej
+ *             "social" = sekcja „Zdjęcia i posty”
+ *             "links"  = tylko ikonka w „Znajdziesz mnie też” (bez podstrony)
+ *  - status : "active" = ma podstronę i jest w menu
+ *             "soon"   = karta „Wkrótce” (bez podstrony)
+ *  - url    : link do profilu
+ *  - color  : kolor akcentu karty / podstrony
  *
- *  Nowy serwis: dopisz obiekt poniżej, skopiuj folder `_szablon`
+ *  Nowy serwis z podstroną: dopisz obiekt, skopiuj folder `_szablon`
  *  jako `<id>/` i uzupełnij treść. Szczegóły w README.md.
  */
 window.SITE = {
@@ -18,35 +22,70 @@ window.SITE = {
   tagline: "Gry, streamy i wszystko pomiędzy.",
 
   platforms: [
+    /* ---------- Wideo i streamy ---------- */
     {
       id: "youtube",
       name: "YouTube",
+      group: "video",
       status: "active",
       color: "#ff3b3b",
-      url: "https://www.youtube.com/@TWOJ_KANAL",
-      // ID kanału (zaczyna się od "UC...") — potrzebne do osadzenia
-      // listy najnowszych filmów. Zostaw puste, jeśli nie chcesz.
-      channelId: "",
+      url: "https://www.youtube.com/channel/UCoSyr5ruJwrmL3UbI-6YbRA",
+      // ID kanału (UC...) — z niego robi się playlista najnowszych filmów
+      channelId: "UCoSyr5ruJwrmL3UbI-6YbRA",
       short: "Filmy, montaże, serie i powtórki najlepszych momentów.",
     },
     {
       id: "twitch",
       name: "Twitch",
+      group: "video",
       status: "active",
       color: "#a970ff",
-      url: "https://www.twitch.tv/TWOJ_KANAL",
-      // Login kanału na Twitchu (to, co jest w adresie po twitch.tv/)
-      channel: "",
+      url: "https://www.twitch.tv/vincent_cancrosa",
+      channel: "vincent_cancrosa",
       short: "Streamy na żywo, wspólne granie i rozmowy z czatem.",
     },
-    // Przykład serwisu, który dopiero wejdzie:
-    // {
-    //   id: "tiktok",
-    //   name: "TikTok",
-    //   status: "soon",
-    //   color: "#25f4ee",
-    //   url: "",
-    //   short: "Krótkie formy i klipy.",
-    // },
+    {
+      id: "tiktok",
+      name: "TikTok",
+      group: "video",
+      status: "active",
+      color: "#25f4ee",
+      ink: "#0f0d0c", // kolor tekstu na przyciskach (jasny akcent -> ciemny tekst)
+      url: "https://www.tiktok.com/@vulpescancrosa",
+      handle: "vulpescancrosa",
+      short: "Krótkie formy, klipy i szybkie akcje.",
+    },
+
+    /* ---------- Zdjęcia i posty ---------- */
+    {
+      id: "instagram",
+      name: "Instagram",
+      group: "social",
+      status: "active",
+      color: "#e1306c",
+      url: "https://www.instagram.com/vincent_cancrosa/",
+      handle: "vincent_cancrosa",
+      // Linki do wybranych postów do pokazania na podstronie, np.
+      // "https://www.instagram.com/p/ABC123xyz/"
+      posts: [],
+      short: "Osobny świat — zdjęcia, kadry i historie, które żyją własnym życiem.",
+    },
+    {
+      id: "bluesky",
+      name: "Bluesky",
+      group: "social",
+      status: "active",
+      color: "#1185fe",
+      url: "https://bsky.app/profile/vcancrosa.bsky.social",
+      handle: "vcancrosa.bsky.social",
+      short: "Posty, przemyślenia i bieżące ogłoszenia.",
+    },
+
+    /* ---------- Znajdziesz mnie też ---------- */
+    { id: "x",        name: "X",        group: "links", status: "active", color: "#e7e9ea", url: "https://x.com/Vulpine_Regnum" },
+    { id: "telegram", name: "Telegram", group: "links", status: "active", color: "#26a5e4", url: "https://t.me/vincent_vince_cancrosa" },
+    { id: "reddit",   name: "Reddit",   group: "links", status: "active", color: "#ff4500", url: "https://www.reddit.com/user/Kilokero1/" },
+    { id: "kick",     name: "Kick",     group: "links", status: "active", color: "#53fc18", url: "https://kick.com/v-cancrosa" },
+    { id: "github",   name: "GitHub",   group: "links", status: "active", color: "#f0f0f0", url: "https://github.com/V-Cancrosa" },
   ],
 };
