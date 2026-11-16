@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Twitch — V Cancrosa Entertainment</title>
+  <meta name="description" content="Kanał Twitch V Cancrosa Entertainment: streamy na żywo, harmonogram i zasady czatu.">
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-root="../" data-platform="twitch">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="../">
+        <img src="../assets/img/logo.svg" alt="">
+        <span>V Cancrosa<small>Entertainment</small></span>
+      </a>
+      <button id="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">☰</button>
+      <nav id="site-nav" aria-label="Główne menu"></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero__icon" data-platform-icon></div>
+        <p class="eyebrow">Na żywo</p>
+        <h1>Twitch</h1>
+        <p>Streamy na żywo, wspólne granie i gadanie z czatem. Wpadaj, rozgość się, nie karm lisa.</p>
+        <div class="hero__actions">
+          <a class="btn" data-platform-link href="#" target="_blank" rel="noopener">Oglądaj na Twitchu</a>
+          <a class="btn btn--ghost" href="#harmonogram">Harmonogram</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Stream</h2>
+        <p class="lead">Jeśli jestem na żywo — zobaczysz to tutaj.</p>
+        <div class="embed" id="embed">
+          <p>Tu pojawi się odtwarzacz — uzupełnij <code>channel</code> w <code>assets/js/config.js</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="harmonogram">
+      <div class="wrap">
+        <h2>Harmonogram</h2>
+        <p class="lead">Godziny orientacyjne (czas polski). Zmiany ogłaszam na kanale.</p>
+        <div class="table-scroll">
+          <table class="schedule">
+            <thead>
+              <tr><th>Dzień</th><th>Godzina</th><th>Co gramy</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Poniedziałek</td><td>—</td><td>Uzupełnij</td></tr>
+              <tr><td>Środa</td><td>20:00</td><td>Uzupełnij</td></tr>
+              <tr><td>Piątek</td><td>20:00</td><td>Uzupełnij</td></tr>
+              <tr><td>Niedziela</td><td>18:00</td><td>Uzupełnij</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="co-i-jak">
+      <div class="wrap">
+        <h2>Co i jak</h2>
+        <div class="info">
+          <article>
+            <h3>Zasady czatu</h3>
+            <ul>
+              <li>Szacunek dla wszystkich.</li>
+              <li>Bez spoilerów.</li>
+              <li>Uzupełnij resztę zasad.</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Komendy</h3>
+            <ul>
+              <li><code>!discord</code> — uzupełnij</li>
+              <li><code>!yt</code> — link do YouTube</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Wsparcie kanału</h3>
+            <p>Uzupełnij: suby, bitsy, punkty kanału — co dają.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year"></span> V Cancrosa Entertainment</span>
+      <div id="footer-links"></div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

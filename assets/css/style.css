@@ -1,0 +1,145 @@
+/* ===== V Cancrosa Entertainment — style ===== */
+:root {
+  --bg: #0f0d0c;
+  --bg-2: #171413;
+  --surface: #1e1a18;
+  --border: #2e2826;
+  --text: #f3ece7;
+  --muted: #a89c95;
+  --brand: #ff7a2f;      /* lisi pomarańcz */
+  --accent: var(--brand); /* nadpisywany per serwis */
+  --radius: 14px;
+  --max: 1080px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 80% -10%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+a { color: var(--accent); }
+img, svg { display: block; max-width: 100%; }
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+
+/* ---------- Nagłówek ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 800; letter-spacing: .02em; }
+.logo img { width: 34px; height: 34px; }
+.logo small { display: block; font-weight: 500; color: var(--muted); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
+
+#site-nav { display: flex; gap: 4px; }
+#site-nav a {
+  color: var(--muted); text-decoration: none; font-weight: 600;
+  padding: 8px 14px; border-radius: 999px; transition: .2s;
+}
+#site-nav a:hover { color: var(--text); background: var(--surface); }
+#site-nav a[aria-current="page"] { color: var(--text); background: color-mix(in srgb, var(--accent, var(--brand)) 22%, transparent); }
+
+#nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 6px 10px; font-size: 1.2rem; cursor: pointer; }
+
+@media (max-width: 680px) {
+  #nav-toggle { display: block; }
+  #site-nav {
+    display: none; position: absolute; top: 64px; left: 0; right: 0;
+    flex-direction: column; padding: 8px 16px 16px;
+    background: var(--bg-2); border-bottom: 1px solid var(--border);
+  }
+  #site-nav.open { display: flex; }
+}
+
+/* ---------- Hero ---------- */
+.hero { padding: 72px 0 48px; }
+.hero h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1.1; margin: 0 0 16px; letter-spacing: -.02em; }
+.hero h1 span { color: var(--accent); }
+.hero p { color: var(--muted); font-size: 1.15rem; max-width: 60ch; margin: 0; }
+.hero__icon { width: 56px; height: 56px; color: var(--accent); margin-bottom: 20px; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px; border-radius: 999px; font-weight: 700; text-decoration: none;
+  background: var(--accent); color: #fff; border: 2px solid var(--accent); transition: .2s;
+}
+.btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.btn--ghost { background: transparent; color: var(--text); border-color: var(--border); }
+.btn--ghost:hover { border-color: var(--accent); }
+
+/* ---------- Sekcje ---------- */
+.section { padding: 40px 0; }
+.section h2 { font-size: 1.6rem; margin: 0 0 8px; }
+.section > .wrap > p.lead { color: var(--muted); margin: 0 0 24px; }
+.eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: .78rem; font-weight: 700; margin: 0 0 6px; }
+
+/* ---------- Karty serwisów ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.card {
+  --accent: var(--brand);
+  position: relative; display: flex; flex-direction: column; gap: 10px;
+  padding: 26px; border-radius: var(--radius);
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); text-decoration: none; overflow: hidden; transition: .25s;
+}
+.card::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--accent);
+}
+a.card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 40px -12px color-mix(in srgb, var(--accent) 50%, transparent); }
+.card__icon { width: 42px; height: 42px; color: var(--accent); }
+.card__icon svg { width: 100%; height: 100%; }
+.card__name { font-size: 1.35rem; font-weight: 800; }
+.card__text { color: var(--muted); flex: 1; }
+.card__cta { font-weight: 700; color: var(--accent); }
+.card--soon { opacity: .55; }
+.card--soon .card__cta { color: var(--muted); }
+
+/* ---------- Bloki informacyjne ---------- */
+.info { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.info article { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+.info h3 { margin: 0 0 6px; font-size: 1.1rem; }
+.info p, .info li { color: var(--muted); margin: 0; }
+.info ul { margin: 0; padding-left: 1.1em; }
+
+/* ---------- Harmonogram ---------- */
+.schedule { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.schedule th, .schedule td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--border); }
+.schedule th { color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; background: var(--bg-2); }
+.schedule tr:last-child td { border-bottom: 0; }
+.schedule td:first-child { font-weight: 700; color: var(--accent); }
+.table-scroll { overflow-x: auto; }
+
+/* ---------- FAQ ---------- */
+details { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: 700; }
+details p { color: var(--muted); margin: 10px 0 0; }
+
+/* ---------- Osadzenia ---------- */
+.embed {
+  position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden;
+  background: var(--surface); border: 1px dashed var(--border);
+  display: grid; place-items: center; text-align: center; color: var(--muted); padding: 20px;
+}
+.embed--ready { border-style: solid; padding: 0; }
+.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------- Stopka ---------- */
+.site-footer { border-top: 1px solid var(--border); margin-top: 48px; padding: 28px 0; color: var(--muted); font-size: .9rem; }
+.site-footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+#footer-links { display: flex; gap: 12px; }
+#footer-links a { width: 22px; height: 22px; color: var(--muted); transition: .2s; }
+#footer-links a:hover { color: var(--accent); }

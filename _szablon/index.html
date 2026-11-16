@@ -1,0 +1,88 @@
+<!doctype html>
+<!-- SZABLON nowej podstrony: skopiuj folder jako <id>/ i podmień ID_SERWISU oraz NAZWA. -->
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NAZWA — V Cancrosa Entertainment</title>
+  <meta name="description" content="Opis podstrony serwisu.">
+  <link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-root="../" data-platform="ID_SERWISU">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="../">
+        <img src="../assets/img/logo.svg" alt="">
+        <span>V Cancrosa<small>Entertainment</small></span>
+      </a>
+      <button id="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">☰</button>
+      <nav id="site-nav" aria-label="Główne menu"></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero__icon" data-platform-icon></div>
+        <p class="eyebrow">Kanał</p>
+        <h1>NAZWA</h1>
+        <p>Uzupełnij: jedno-dwa zdania o tym, co jest w tym serwisie.</p>
+        <div class="hero__actions">
+          <a class="btn" data-platform-link href="#" target="_blank" rel="noopener">Przejdź na kanał</a>
+          <a class="btn btn--ghost" href="#co-i-jak">Co i jak</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="co-i-jak">
+      <div class="wrap">
+        <h2>Co i jak</h2>
+        <p class="lead">Co pojawia się na kanale i jak często.</p>
+        <div class="info">
+          <article>
+            <h3>Serie</h3>
+            <ul>
+              <li>Uzupełnij: nazwa serii #1</li>
+              <li>Uzupełnij: nazwa serii #2</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Jak często</h3>
+            <p>Uzupełnij: np. „nowy film co środę i sobotę”.</p>
+          </article>
+          <article>
+            <h3>Shorts</h3>
+            <p>Uzupełnij: krótkie klipy, highlighty ze streamów itp.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Najczęstsze pytania</h2>
+        <details>
+          <summary>Czy można proponować gry / tematy?</summary>
+          <p>Uzupełnij odpowiedź.</p>
+        </details>
+        <details>
+          <summary>Czy mogę wykorzystać fragment filmu?</summary>
+          <p>Uzupełnij zasady korzystania z materiałów.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year"></span> V Cancrosa Entertainment</span>
+      <div id="footer-links"></div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
