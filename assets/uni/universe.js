@@ -10,8 +10,8 @@
    data-site: "fursony" | "entertainment" | "studio" — zaznacza bieżącą stronę.
 
    Ukryte przejście do studia (tylko dla właściciela): pięć szybkich kliknięć w znak
-   albo wpisanie na klawiaturze słowa „studio”. To ukrycie, nie zabezpieczenie —
-   kto zna adres, wejdzie; studio nic nie wysyła i nic nie przechowuje.
+   albo wpisanie na klawiaturze słowa „studio”. Samo studio stoi na Cloudflare
+   (Worker „studio”) za Cloudflare Access — wpuszcza tylko właściciela, kodem z e-maila.
 
    Licznik odwiedzin: Cloudflare Web Analytics (bez ciasteczek, bez danych osobowych).
    Ładuje się tylko na v-cancrosa.github.io i nigdy w studiu.
@@ -25,8 +25,9 @@
   const PATH = {
     fursony: "/V_Cancrosa-One-and-Fursonas/",
     entertainment: "/V_Cancrosa_Entertainment/",
-    studio: "/V_Cancrosa-YouTube-Create/",
   };
+  // Studio jest osobno, za zamkiem — zawsze pełny adres
+  const STUDIO = "https://studio.vulpescancrosa.workers.dev/";
   const T = {
     pl: { fursony: "Postacie", entertainment: "Kanały", studio: "Studio", home: "The One Above Them — postacie", mark: "Znak: jeden ponad nimi" },
     en: { fursony: "Characters", entertainment: "Channels", studio: "Studio", home: "The One Above Them — characters", mark: "Mark: the one above them" },
@@ -58,7 +59,7 @@
     bar.querySelectorAll("[data-to]").forEach(a => {
       const to = a.dataset.to;
       a.textContent = t[to];
-      a.href = BASE + PATH[to] + (to === "entertainment" && l === "en" ? "en/" : "");
+      a.href = to === "studio" ? STUDIO : BASE + PATH[to] + (to === "entertainment" && l === "en" ? "en/" : "");
       if (to === site) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
   }
