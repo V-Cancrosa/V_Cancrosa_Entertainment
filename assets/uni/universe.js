@@ -12,12 +12,16 @@
    Ukryte przejście do studia (tylko dla właściciela): pięć szybkich kliknięć w znak
    albo wpisanie na klawiaturze słowa „studio”. To ukrycie, nie zabezpieczenie —
    kto zna adres, wejdzie; studio nic nie wysyła i nic nie przechowuje.
+
+   Licznik odwiedzin: Cloudflare Web Analytics (bez ciasteczek, bez danych osobowych).
+   Ładuje się tylko na v-cancrosa.github.io i nigdy w studiu.
    ========================================================================== */
 (() => {
   const me = document.currentScript;
   const site = (me && me.dataset.site) || "";
-  // Na github.io i własnej domenie wystarczą ścieżki od korzenia; przy otwieraniu z dysku — pełne adresy.
-  const BASE = /^https?:$/.test(location.protocol) && !/^(localhost|127\.)/.test(location.hostname) ? "" : "https://v-cancrosa.github.io";
+  const HOME = "v-cancrosa.github.io";
+  // Na v-cancrosa.github.io wystarczą ścieżki od korzenia; gdzie indziej (dysk, podgląd, inna domena) — pełne adresy.
+  const BASE = location.hostname === HOME ? "" : "https://" + HOME;
   const PATH = {
     fursony: "/V_Cancrosa-One-and-Fursonas/",
     entertainment: "/V_Cancrosa_Entertainment/",
@@ -100,4 +104,13 @@
     new MutationObserver(render).observe(root, { attributes: true, attributeFilter: ["lang", "data-lang"] });
   }
   if (document.body) mount(); else document.addEventListener("DOMContentLoaded", mount);
+
+  // Licznik odwiedzin — jeden skrypt Cloudflare dla całego v-cancrosa.github.io
+  if (site !== "studio" && location.hostname === HOME && !document.querySelector("script[data-cf-beacon]")) {
+    const s = document.createElement("script");
+    s.defer = true;
+    s.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    s.setAttribute("data-cf-beacon", '{"token": "c77fd34d51aa46b98fb10a5b296267d5"}');
+    document.head.appendChild(s);
+  }
 })();
