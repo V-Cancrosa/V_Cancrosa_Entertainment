@@ -135,7 +135,7 @@ code { font-family: var(--mono); font-size: .88em; color: var(--text); backgroun
 
 /* ---------- Hero / ekran tytułowy ---------- */
 .hero { position: relative; padding: 96px 0 56px; }
-.hero--title { min-height: calc(100vh - 68px); display: flex; align-items: center; padding: 56px 0 110px; }
+.hero--title { min-height: min(calc(100svh - 68px), 60rem); display: flex; align-items: center; padding: 56px 0 110px; }
 .hero--title .wrap { display: grid; grid-template-columns: 1.3fr .7fr; gap: 40px; align-items: center; }
 @media (max-width: 900px) {
   .hero--title .wrap { grid-template-columns: 1fr; }
@@ -442,7 +442,7 @@ details p { color: var(--muted); margin: 12px 0 0; }
 #footer-links a:hover { color: var(--accent); transform: translateY(-2px); filter: drop-shadow(0 0 8px var(--accent)); }
 
 /* ---------- Napisy końcowe ---------- */
-.credits-stage { position: relative; height: calc(100vh - 68px); overflow: hidden; -webkit-mask-image: linear-gradient(transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(transparent, #000 15%, #000 85%, transparent); }
+.credits-stage { position: relative; height: min(calc(100vh - 68px), 60rem); overflow: hidden; -webkit-mask-image: linear-gradient(transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(transparent, #000 15%, #000 85%, transparent); }
 .credits-roll { position: absolute; left: 0; right: 0; top: 38%; padding: 0 16px; text-align: center; animation: roll var(--dur, 50s) linear infinite; }
 .credits-stage:hover .credits-roll { animation-play-state: paused; }
 @keyframes roll { to { transform: translateY(calc(-100% - 45vh)); } }

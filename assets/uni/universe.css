@@ -52,6 +52,14 @@ html.uni-up .uni { transform: translateY(-100%); }
 .uni-links .uni-studio[hidden] { display: none; }
 @keyframes uni-in { from { opacity: 0; transform: translateX(6px); } }
 
+/* Niski widok (duże powiększenie, telefon w poziomie): pas nie jest przyklejony i nie znika przy przewijaniu,
+   a przyklejone nagłówki stron jadą razem z treścią — inaczej zajmowałyby pół ekranu. */
+@media (max-height: 26rem) {
+  .uni { position: absolute; }
+  html.uni-up { --uni-top: var(--uni-h); }
+  html.uni-up .uni { transform: none; }
+  .site-header { position: relative !important; top: 0 !important; }
+}
 @media (max-width: 520px) {
   .uni { gap: .5rem; letter-spacing: .1em; }
   .uni-home span { display: none; }
