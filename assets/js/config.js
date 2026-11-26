@@ -77,7 +77,20 @@ window.SITE = {
       handle: "vincent_cancrosa",
       // Linki do wybranych postów do pokazania na podstronie, np.
       // "https://www.instagram.com/p/ABC123xyz/"
-      posts: ["https://www.instagram.com/p/DV6nS6ZALlP/","https://www.instagram.com/p/DXL45stgH5U/","https://www.instagram.com/p/DZVarh2gEBX/?img_index=1","https://www.instagram.com/p/Dbi7ihxAImV/","https://www.instagram.com/p/Dbi-kQEAP27/?img_index=2","https://www.instagram.com/p/DbjAG37AAn1/","https://www.instagram.com/p/DboLfGNAMx2/","https://www.instagram.com/p/Dcl5QBCABbA/","https://www.instagram.com/p/Dd3g2ABgNbf/","https://www.instagram.com/p/Dd3h5WVACYx/","https://www.instagram.com/p/De-Au3xI-hQ/","https://www.instagram.com/p/Dcl8aGOAHxm/","https://www.instagram.com/p/DV6oPI9AKl8/","https://www.instagram.com/p/Dcl7HxMgouD/"],
+      posts: ["https://www.instagram.com/p/DV6nS6ZALlP/",
+              "https://www.instagram.com/p/DXL45stgH5U/",
+              "https://www.instagram.com/p/DZVarh2gEBX/?img_index=1",
+              "https://www.instagram.com/p/Dbi7ihxAImV/",
+              "https://www.instagram.com/p/Dbi-kQEAP27/?img_index=2",
+              "https://www.instagram.com/p/DbjAG37AAn1/",
+              "https://www.instagram.com/p/DboLfGNAMx2/",
+              "https://www.instagram.com/p/Dcl5QBCABbA/",
+              "https://www.instagram.com/p/Dd3g2ABgNbf/",
+              "https://www.instagram.com/p/Dd3h5WVACYx/",
+              "https://www.instagram.com/p/De-Au3xI-hQ/",
+              "https://www.instagram.com/p/Dcl8aGOAHxm/",
+              "https://www.instagram.com/p/DV6oPI9AKl8/",
+              "https://www.instagram.com/p/Dcl7HxMgouD/"],
       short: {
         pl: "Osobny świat — zdjęcia, kadry i historie, które żyją własnym życiem.",
         en: "A world of its own — photos, frames and stories with a life of their own.",
