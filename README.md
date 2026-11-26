@@ -28,7 +28,7 @@ Trzy strony tworzą jedno uniwersum i mają ten sam cienki pas na górze: **Post
 **Kanały** (V Cancrosa Entertainment) i — ukryte — **Studio** (V_Cancrosa-YouTube-Create).
 
 - Źródło pasa: folder `uni/` w repo **V_Cancrosa-One-and-Fursonas**. Kopie: `assets/uni/` w Entertainment i `site/uni/` w YouTube-Create.
-  Zmieniasz tylko źródło, potem kopiujesz cały folder `uni/` bez zmian.
+  Zmieniasz tylko źródło — kopie aktualizują się same (workflow `sync-uni.yml` w obu repo, co 3 godziny albo ręcznie z zakładki Actions).
 - Na stronie: `<link rel="stylesheet" href="…/uni/universe.css">` i `<script src="…/uni/universe.js" data-site="fursony|entertainment|studio" defer></script>`.
 - Pas chowa się przy przewijaniu w dół, wraca przy przewijaniu w górę i mówi językiem strony.
 - Ukryte przejście do studia: pięć szybkich kliknięć w znak (punkt nad trzema kreskami) albo wpisanie na klawiaturze „studio”.
