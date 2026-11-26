@@ -113,3 +113,11 @@ Dla osób z włączonym „ogranicz ruch” w systemie animacje są wyłączone,
 | [Button hover effects with box-shadow](https://codepen.io/giana/pen/BZaGyP) | Giana | efekty przycisków |
 
 Czcionki: Exo 2, Inter, JetBrains Mono (SIL OFL) — trzymane na serwerze strony w `assets/fonts/`, bez Google Fonts (RODO). Ikony: Simple Icons (CC0).
+
+## Wspólny pas (`assets/uni/`) — synchronizowany automatycznie
+
+`assets/uni/` to kopia folderu `uni/` z repo **V_Cancrosa-One-and-Fursonas**. **Nie edytuj jej tutaj** — zmiany rób w źródle.
+Workflow `.github/workflows/sync-uni.yml` co 3 godziny pobiera źródło i, jeśli coś się zmieniło, robi commit
+„Wspólny pas: synchronizacja uni/…” i odświeża GitHub Pages.
+
+Od razu, bez czekania: zakładka **Actions → Sync uni → Run workflow**.

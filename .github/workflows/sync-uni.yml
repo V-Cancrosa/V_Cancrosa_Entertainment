@@ -1,0 +1,75 @@
+# Synchronizacja wspólnego pasa „V Cancrosa” (folder uni/)
+# Źródło: folder uni/ w repo V_Cancrosa-One-and-Fursonas (publiczne, bez tokenów).
+# Kopia:  assets/uni/ w tym repo. Nie edytuj kopii ręcznie — zmiany rób w źródle.
+#
+# Uruchamia się: co 3 godziny, ręcznie (Actions → Sync uni → Run workflow)
+# albo z zewnątrz przez repository_dispatch typu "uni-updated".
+name: Sync uni
+
+on:
+  schedule:
+    - cron: "23 */3 * * *"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [uni-updated]
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: sync-uni
+  cancel-in-progress: false
+
+env:
+  SOURCE_REPO: V-Cancrosa/V_Cancrosa-One-and-Fursonas
+  SOURCE_DIR: uni
+  TARGET_DIR: assets/uni
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pobierz to repo
+        uses: actions/checkout@v4
+
+      - name: Pobierz uni/ ze źródła
+        run: |
+          git clone --quiet --depth 1 --filter=blob:none --sparse \
+            "https://github.com/${SOURCE_REPO}.git" "$RUNNER_TEMP/src"
+          git -C "$RUNNER_TEMP/src" sparse-checkout set "$SOURCE_DIR"
+          echo "SOURCE_SHA=$(git -C "$RUNNER_TEMP/src" rev-parse --short HEAD)" >> "$GITHUB_ENV"
+
+      - name: Sprawdź, czy źródło jest kompletne
+        run: |
+          for f in universe.css universe.js; do
+            test -s "$RUNNER_TEMP/src/$SOURCE_DIR/$f" || { echo "::error::Brak $SOURCE_DIR/$f w źródle — przerywam, nic nie kasuję."; exit 1; }
+          done
+
+      - name: Skopiuj (dokładna kopia, łącznie z usuniętymi plikami)
+        run: |
+          rm -rf "$TARGET_DIR"
+          mkdir -p "$TARGET_DIR"
+          cp -a "$RUNNER_TEMP/src/$SOURCE_DIR/." "$TARGET_DIR/"
+
+      - name: Zapisz zmiany
+        id: commit
+        run: |
+          git add -A "$TARGET_DIR"
+          if git diff --cached --quiet; then
+            echo "uni/ bez zmian."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Wspólny pas: synchronizacja uni/ z ${SOURCE_REPO}@${SOURCE_SHA}"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Odśwież GitHub Pages
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        # Push z tokenu Actions nie zawsze uruchamia budowanie Pages — prosimy o nie wprost.
+        run: gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --silent || echo "::warning::Nie udało się zlecić budowania Pages (sprawdź, czy Pages jest włączone)."
