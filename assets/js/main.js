@@ -182,7 +182,7 @@
     // więc podgląd wczytuje się dopiero po kliknięciu.
     tiktok: function (p, el) {
       clickToLoad(el, "TikTok", function () {
-        el.className = "feed-embed";
+        setLayout(el, "feed-embed");
         el.innerHTML =
           '<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@' + esc(p.handle) +
           '" data-unique-id="' + esc(p.handle) + '" data-embed-type="creator" ' +
@@ -196,8 +196,8 @@
     instagram: function (p, el) {
       if (!p.posts || !p.posts.length) return;
       clickToLoad(el, "Instagram", function () {
-        el.className = "ig-grid";
-        el.innerHTML = p.posts.map(function (u) {
+        setLayout(el, "ig-grid");
+        el.innerHTML = p.posts.map(igPermalink).filter(Boolean).map(function (u) {
           return '<blockquote class="instagram-media" data-instgrm-permalink="' + esc(u) +
             '" data-instgrm-version="14"><a href="' + esc(u) + '" target="_blank" rel="noopener">' + T.seePost + '</a></blockquote>';
         }).join("");
@@ -216,7 +216,7 @@
         .then(function (data) {
           var items = (data.feed || []).filter(function (f) { return !f.reason; }).slice(0, 6);
           if (!items.length) { el.innerHTML = "<p>" + T.bskyEmpty + "</p>"; return; }
-          el.className = "posts";
+          setLayout(el, "posts");
           el.innerHTML = items.map(function (f) { return bskyPost(f.post); }).join("");
         })
         .catch(function () {
@@ -247,6 +247,20 @@
       (rec.text ? '<p class="post__text">' + esc(rec.text) + "</p>" : "") +
       '<span class="post__meta"><span>' + esc(date) + "</span><span>♥ " + (post.likeCount || 0) +
       "  ↻ " + (post.repostCount || 0) + "</span></span></a>";
+  }
+
+  // Zmienia układ ramki osadzenia, ale zostawia klasę „in” od animacji pojawiania się —
+  // bez niej ramka zostaje przezroczysta (tak właśnie znikały Instagram, TikTok i Bluesky).
+  function setLayout(el, cls) {
+    el.classList.remove("embed", "embed--free", "embed--ready");
+    el.classList.add(cls);
+  }
+
+  // Link do posta w dowolnej postaci (z ?utm_source=…, ?img_index=…, z „Udostępnij”, reel)
+  // -> czysty adres, który rozumie osadzanie Instagrama.
+  function igPermalink(u) {
+    var m = String(u || "").match(/instagram\.com\/(?:[^\/?#]+\/)?(p|reel|tv)\/([A-Za-z0-9_-]+)/);
+    return m ? "https://www.instagram.com/" + m[1] + "/" + m[2] + "/" : null;
   }
 
   function clickToLoad(el, name, load) {
